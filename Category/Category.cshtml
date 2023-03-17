@@ -1,0 +1,45 @@
+﻿@model Demo_Crud_operations.Context.Product_list
+@{
+    ViewBag.Title = "Category";
+}
+
+<style>
+    .error {
+        color:red;
+    }
+</style>
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+<div class="container">
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ProductId)
+        <label>ProductId</label>
+        @Html.ValidationMessageFor(x => x.ProductId, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.ProductId, new { @class = "form-control", @placeholder = "Enter ProductId" })
+    </div>
+
+    <div class="form-group">
+        <label>ProductName</label>
+        @Html.ValidationMessageFor(x => x.ProductName, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", @placeholder = "Enter ProductName" })
+    </div>
+
+    <div class="form-group">
+        <label>CategoryId</label>
+        @Html.ValidationMessageFor(x => x.CategoryId, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.CategoryId, new {  @class = "form-control", @placeholder = "Enter CategoryId" })
+    </div>
+    <div class="form-group">
+        <label>CategoryName</label>
+        @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", @placeholder = "Enter CategoryName" })
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="cancel" class="btn btn-success">cancel</button>
+
+</div>
+    
+}

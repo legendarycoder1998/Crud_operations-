@@ -1,0 +1,28 @@
+﻿@model List<Demo_Crud_operations.Context.Product_list>
+@{
+    ViewBag.Title = "CategoryList";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>ProductId</th>
+        <th>ProductName</th>
+        <th>CategoryId</th>
+        <th>CategoryName</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.ProductId</td>
+    <td>@item.ProductName</td>
+    <td>@item.CategoryId</td>
+    <td>@item.CategoryName</td>
+    <td>
+        <a href="@Url.Action("Category",new { item.CategoryId,item.ProductId,item.CategoryName,item.ProductName})" class="btn btn-danger">Edit</a>
+        <a href="@Url.Action("Delete",new { item.CategoryId})" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
+    }
+</table>
+
